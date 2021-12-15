@@ -13,7 +13,12 @@ describe('CookbookCli', () => {
 
   describe('Listing recipes', () => {
     test('should display the correct message listing all of the recipe names', () => {
-
+      const deliciousCookBook = new Cookbook();
+      const deliciousCookBookCLI = new CookbookCli(deliciousCookBook);
+      deliciousCookBookCLI.add('cake',['flour','cream','egg', 'sugar', 'salt']);
+      deliciousCookBookCLI.add('cheeseballs',['cheese','flour', 'coriander', 'sauce']);
+      const message =  deliciousCookBookCLI.list();
+      expect(message).toEqual('You have the following recipes: cake,cheeseballs');
     });
   });
 
