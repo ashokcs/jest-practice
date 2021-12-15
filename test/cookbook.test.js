@@ -31,7 +31,14 @@ describe('Cookbook', () => {
 
   describe('Deleting a recipe', () => {
     test('should allow a recipe to be deleted', () => {
-
+      const deliciousCookBook = new Cookbook();
+      deliciousCookBook.addRecipe('cake',['flour','cream','egg', 'sugar', 'salt']);
+      deliciousCookBook.addRecipe('pizza',['flour','broccoli','mushroom', 'cheese', 'sauce', 'macaroni', 'flakes']);
+      deliciousCookBook.addRecipe('cheeseballs',['cheese','flour', 'coriander', 'sauce']);
+      deliciousCookBook.removeRecipe(['pizza']);
+      deliciousCookBook.removeRecipe(['cheeseballs']);
+      const receipiesList = deliciousCookBook.listRecipes();
+      expect(receipiesList).toEqual(['cake']);
     });
   });
 });
