@@ -4,14 +4,18 @@ describe('Cookbook', () => {
   describe('Adding recipes', () => {
     test('should allow a recipe to be added', () => {
       const deliciousCookBook = new Cookbook();
-      deliciousCookBook.addRecipe("Cake",['Flour','Cream','Egg', 'sugar', 'salt']);
-      expect(deliciousCookBook.recipes).toEqual({Cake: ['Flour','Cream','Egg', 'sugar', 'salt']});
+      deliciousCookBook.addRecipe("cake",['flour','cream','egg', 'sugar', 'salt']);
+      expect(deliciousCookBook.recipes).toEqual({cake: ['flour','cream','egg', 'sugar', 'salt']});
     });
   });
 
   describe('Listing recipes', () => {
     test('should allow the recipes to be listed', () => {
-
+      const deliciousCookBook = new Cookbook();
+      deliciousCookBook.addRecipe("cake",['flour','cream','egg', 'sugar', 'salt']);
+      deliciousCookBook.addRecipe('pizza',['flour','broccoli','mushroom', 'cheese', 'sauce', 'macaroni', 'flakes']);
+      const receipiesList = deliciousCookBook.listRecipes();
+      expect(receipiesList).toEqual(['cake','pizza']);
     });
   });
 
