@@ -36,7 +36,12 @@ describe('CookbookCli', () => {
 
   describe('Deleting a recipe', () => {
     test('should accept the recipe name and display the correct message', () => {
-
+      const deliciousCookBook = new Cookbook();
+      const deliciousCookBookCLI = new CookbookCli(deliciousCookBook);
+      deliciousCookBookCLI.add('cake',['flour','cream','egg', 'sugar', 'salt']);
+      deliciousCookBookCLI.add('cheeseballs',['cheese','flour', 'coriander', 'sauce']);
+      const message =  deliciousCookBookCLI.remove('cake');
+      expect(message).toEqual('Successfully removed the following recipe: cheeseballs');
     });
   });
 });
