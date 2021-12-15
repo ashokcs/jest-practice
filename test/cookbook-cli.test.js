@@ -24,7 +24,13 @@ describe('CookbookCli', () => {
 
   describe('Retrieving a recipe', () => {
     test('should display the ingredients required to make the specified recipe', () => {
-
+      const deliciousCookBook = new Cookbook();
+      const deliciousCookBookCLI = new CookbookCli(deliciousCookBook);
+      deliciousCookBookCLI.add('cake',['flour','cream','egg', 'sugar', 'salt']);
+      deliciousCookBookCLI.add('cheeseballs',['cheese','flour', 'coriander', 'sauce']);
+      deliciousCookBookCLI.add('pizza',['flour','broccoli','mushroom', 'cheese', 'sauce', 'macaroni', 'flakes']);
+      const message =  deliciousCookBookCLI.get('cheeseballs');
+      expect(message).toEqual('The ingredients for hotdog are: cake,cheeseballs,pizza');
     });
   });
 
